@@ -8,21 +8,22 @@ matrMult x y =
     let yT = transpose y
     in [[dotProd row col | col <- yT] | row <- x]
 
-{-
-for i in range m
-    if i == r
-        M += m[s]
-    else if i == s
-        M += m[r]
-    else
-        M += m[i]
-
--}
-
 eroPrs :: [[Int]] -> Int -> Int -> [[Int]]
 eroPrs m r s =
     let ls = [0.. (r - 1 - 1)] ++ [s - 1] ++ [(r + 1 - 1).. (s - 1 - 1)] ++ [r - 1]
     in [m !! i | i <- ls]
+
+{-
+R = lambda * m [r]
+for i to len m
+    if i == s
+        M += m[s] + R
+    M += m[i]
+-}
+
+eroArs :: [[Int]] -> Int -> Int -> Double -> [[Int]]
+eroArs m r s lambda =
+    [[]]
 
 test :: [[Int]] -> Int -> Int -> [Int]
 test m r s = [1.. (r - 1)] ++ [s] ++ [(r + 1).. (s - 1)] ++ [r]
