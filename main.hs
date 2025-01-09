@@ -30,10 +30,6 @@ eroMr m r lambda =
     where
         r' = r - 1
 
-
-mullist :: [Int] -> Int -> [Int]
-mullist x l = map (* l) x
-
 identity :: Int -> [[Int]]
 identity x = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
